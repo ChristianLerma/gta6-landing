@@ -7,11 +7,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Hola Mundo
+      - name: Hola Mundo ${{ github.ref }}
         run: echo "Hola Mundo Primero"
 
   second_job: 
-    if: false
+    if: ${{ github.ref == 'refs/heads/main' }}
     needs: first_job
     runs-on: ubuntu-latest
 
