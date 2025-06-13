@@ -8,8 +8,8 @@ jobs:
     env:
       GITHUB_TOKEN: Test
     steps:
-      - name: "Hola Mundo ${{ github.ref }} $GITHUB_TOKEN"
-        run: echo $GITHUB_OUTPUT
+      - name: Work directory
+        run: echo "my_variable=Hola Mundo" >> $GITHUB_OUTPUT
   second_job: 
     if: ${{ github.ref == 'refs/heads/master' }}
     needs: first_job
