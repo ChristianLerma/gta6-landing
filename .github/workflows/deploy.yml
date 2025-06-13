@@ -13,6 +13,12 @@ jobs:
       - name: "Hola Mundo ${{ github.ref }} $GITHUB_TOKEN"
         run: echo "Hola Mundo Primero"
 
+      - name: Action
+        uses: actions/checkout@v2
+      
+      - name: Working dir after action
+        run: ls -al
+
   second_job: 
     if: ${{ github.ref == 'refs/heads/master' }}
     needs: first_job
