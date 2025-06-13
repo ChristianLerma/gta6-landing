@@ -5,25 +5,15 @@ on: push
 jobs: 
   first_job: 
     runs-on: ubuntu-latest
-
     env:
       GITHUB_TOKEN: Test
-
     steps:
       - name: "Hola Mundo ${{ github.ref }} $GITHUB_TOKEN"
-        run: echo "Hola Mundo Primero"
-
-      - name: Action
-        uses: actions/checkout@v2
-      
-      - name: Working dir after action
-        run: ls -al
-
+        run: echo $GITHUB_OUTPUT
   second_job: 
     if: ${{ github.ref == 'refs/heads/master' }}
     needs: first_job
     runs-on: ubuntu-latest
-
     steps:
       - name: Hola Mundo
         run: echo "Hola Mundo Segundo"
