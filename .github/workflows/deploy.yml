@@ -6,12 +6,15 @@ jobs:
   first_job: 
     runs-on: ubuntu-latest
 
+    env:
+      GITHUB_TOKEN: Test
+
     steps:
-      - name: Hola Mundo ${{ github.ref }}
+      - name: Hola Mundo ${{ github.ref }} $GITHUB_TOKEN
         run: echo "Hola Mundo Primero"
 
   second_job: 
-    if: ${{ github.ref == 'refs/heads/main' }}
+    if: ${{ github.ref == 'refs/heads/master' }}
     needs: first_job
     runs-on: ubuntu-latest
 
