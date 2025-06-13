@@ -5,6 +5,10 @@ on: push
 jobs: 
   first_job: 
     runs-on: ubuntu-latest
+
+    outputs:
+      salida: ${{ steps.step_1.outputs.my_variable }}
+
     env:
       GITHUB_TOKEN: Test
     steps:
@@ -19,6 +23,11 @@ jobs:
     if: ${{ github.ref == 'refs/heads/master' }}
     needs: first_job
     runs-on: ubuntu-latest
+
+    env: 
+      SALIDA: ${{ needs.first_job.outputs.salida}}
+
     steps:
       - name: Hola Mundo
-        run: echo "Hola Mundo Segundo"
+        run: echo "Hola Mundo - Variable Global ${SALIDA}"
+        
