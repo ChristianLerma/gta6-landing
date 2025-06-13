@@ -30,4 +30,6 @@ jobs:
     steps:
       - name: Hola Mundo
         run: echo "Hola Mundo - Variable Global $SALIDA"
+      - name: Hola Mundo Corchetes
+        run: echo "Hola Mundo - Variable Global ${SALIDA}"
         
