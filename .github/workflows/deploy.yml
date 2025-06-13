@@ -10,7 +10,7 @@ jobs:
       GITHUB_TOKEN: Test
 
     steps:
-      - name: Hola Mundo ${{ github.ref }} $GITHUB_TOKEN
+      - name: "Hola Mundo ${{ github.ref }} $GITHUB_TOKEN"
         run: echo "Hola Mundo Primero"
 
   second_job: 
